@@ -8,6 +8,7 @@ export const notesSidebar: DefaultTheme.Sidebar = [
   },
   {
     text: "CI/CD",
+    collapsed: false,
     items: [{ text: "GitHub Actions", link: "/notes/github-actions" }],
   },
 ];
@@ -22,6 +23,11 @@ const bugsSidebar: DefaultTheme.Sidebar = [
         collapsed: false,
         link: "/bugs/android/",
         items: [],
+      },
+      {
+        text: "CI/CD",
+        collapsed: false,
+        items: [{ text: "GitHub Actions", link: "/bugs/cd-cd/github-action" }],
       },
     ],
   },
