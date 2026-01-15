@@ -21,6 +21,10 @@ export default defineConfig({
     socialLinks: [{ icon: "github", link: "https://github.com/demonraychen" }],
 
     sidebar,
+    outline: {
+      label: "目录",
+      level: "deep",
+    },
 
     lastUpdated: {
       text: "最后更新",

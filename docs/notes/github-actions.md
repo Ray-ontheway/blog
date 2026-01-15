@@ -3,7 +3,7 @@
 > 最近开始学习使用 Github Actions，记录一下第一次使用的经验。
 > 学习 github actions 是因为我的个人网站感觉没有必要使用 jenkins 来实现 CI/CD(很没必要，还占空间)。
 
-Github Actions 的基本操作步骤如下：
+## Github Actions 的基本操作步骤如下：
 
 1. github 仓库配置：
    - 创建 github 仓库之后，需要在仓库的 `Settings` 选项卡中，针对项目进行配置

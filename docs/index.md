@@ -17,6 +17,8 @@ hero:
 features:
   - title: 日常笔记
     details: 一个用来做日常记录的地方，可能不完全正确，仅供参考。
+    link: /notes
   - title: 踩过的坑
     details: 记录那些踩过的坑，避免再次踩坑。神烦的坑
+    link: /bugs
 ---
