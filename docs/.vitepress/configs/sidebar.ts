@@ -4,7 +4,11 @@ export const notesSidebar: DefaultTheme.Sidebar = [
   {
     text: "笔记",
     link: "/notes/",
-    items: [{ text: "学习笔记", link: "/notes/test" }],
+    items: [],
+  },
+  {
+    text: "CI/CD",
+    items: [{ text: "GitHub Actions", link: "/notes/github-actions" }],
   },
 ];
 
@@ -17,7 +21,7 @@ const bugsSidebar: DefaultTheme.Sidebar = [
         text: "Android",
         collapsed: false,
         link: "/bugs/android/",
-        items: [{ text: "测试", link: "/bugs/android/test" }],
+        items: [],
       },
     ],
   },

@@ -15,10 +15,8 @@ hero:
       link: /bugs
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 日常笔记
+    details: 一个用来做日常记录的地方，可能不完全正确，仅供参考。
+  - title: 踩过的坑
+    details: 记录那些踩过的坑，避免再次踩坑。神烦的坑
 ---
