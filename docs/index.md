@@ -8,11 +8,11 @@ hero:
   tagline: 知识记录，持续进步
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 日常笔记
+      link: /notes
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 踩坑 bug 记录
+      link: /bugs
 
 features:
   - title: Feature A
