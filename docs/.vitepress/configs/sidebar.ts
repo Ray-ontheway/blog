@@ -22,7 +22,9 @@ const bugsSidebar: DefaultTheme.Sidebar = [
         text: "Android",
         collapsed: false,
         link: "/bugs/android/",
-        items: [{ text: "Android SAF", link: "/bugs/android/AndroidSAF" }],
+        items: [
+          { text: "Android SAF 踩的坑", link: "/bugs/android/AndroidSAF" },
+        ],
       },
       {
         text: "CI/CD",

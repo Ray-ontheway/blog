@@ -1,11 +1,11 @@
 ---
+layout: doc
 title: Android SAF 踩的坑
 tags:
   - Android
   - SAF
+description: 记录在 Android 中使用 SAF 时遇到的一些问题。
 ---
-
-# Android SAF 踩的坑
 
 ## `ActivityNotFoundException`
 
