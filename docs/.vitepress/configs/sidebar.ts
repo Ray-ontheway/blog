@@ -13,9 +13,25 @@ export const notesSidebar: DefaultTheme.Sidebar = [
       { text: "GitHub Actions Pages 部署", link: "/notes/github-actions" },
       {
         text: "Vue3 基于 GitHub Actions 的持续集成模板",
-        link: "/notes/template/github_action_ci_template_vue",
+        link: "/notes/template/github-action-ci-template-vue",
       },
     ],
+  },
+  {
+    text: "tauri 相关",
+    collapsed: false,
+    items: [
+      { text: "Tauri + Vue 初始化", link: "/notes/tauri/vue-tauri-initialize" },
+      {
+        text: "Tauri + Vue 集成 Cpp 的依赖库",
+        link: "/notes/tauri/vue-tauri-c++-migration",
+      },
+    ],
+  },
+  {
+    text: "前端一般配置",
+    collapsed: false,
+    items: [{ text: "前端配置示例", link: "/notes/template/frontend-config" }],
   },
 ];
 
