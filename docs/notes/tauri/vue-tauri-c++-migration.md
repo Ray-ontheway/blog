@@ -1,10 +1,12 @@
-# 在tauri 中集成简单的 c++ 的外部库
+# 在tauri 中集成简单的 `C++` 的外部库
 
-## 编写 c++ 相关的代码
+## 手动编译然后连接 ( `Linux` 环境下 )
+
+### 编写 `C++` 相关的代码
 
 在 `tauri-src/cpp` 目录下编写代码
 
-- testlib.h
+- `testlib.h`
 
 ```cpp
 #ifndef MYLIB_H
@@ -25,7 +27,7 @@ void free_string(char* ptr);
 #endif
 ```
 
-- testlib.cpp
+- `testlib.cpp`
 
 ```cpp
 #include <string>
@@ -52,7 +54,7 @@ extern "C" {
 }
 ```
 
-## 编译 cpp 的文件生成库
+### 编译 `cpp` 的文件生成库
 
 ```shell
 // 生成 linux 下的库
@@ -65,7 +67,7 @@ g++ -shared -fPIC -o libs/macos/libtestlib.dylib cpp/testlib.cpp
 g++ -shared -fPIC -o libs/windows/testlib.dll cpp/testlib.cpp
 ```
 
-## 修改 `build.rs`
+### 修改 `build.rs`
 
 ```Rust
 // build.rs
@@ -102,7 +104,7 @@ fn main() {
 }
 ```
 
-## 在 `lib.rs` 中把需要使用的cpp的库的函数，和 rust 做一个映射
+### 在 `lib.rs` 中把需要使用的 `cpp` 的库的函数，和 `rust` 做一个映射
 
 ```Rust
 #[link(name="testlib")]
@@ -135,4 +137,40 @@ fn cpp_process_string(input: String) -> Result<String, String> {
     Ok(result)
   }
 }
+```
+
+## 使用 `cc` `crate`来实现自动的配置
+
+在使用 `cc` `crate` 来实现cpp的编译和映射
+
+> 这种情况下，`C++` 的代码部分是相似或者说相同的，`lib.rs` 的编写也是相同的，后面列出两点不同
+
+### 在 `Cargo.toml` 中添加 `cc` `crate`
+
+```TOML
+// 其他保持原状
+[build-dependencies]
+cc = { version = "1.0", features = [] }
+```
+
+### 修改 `build.rs`
+
+```Rust
+fn main() {
+  // 监听代码变化
+  println!("cargo:rerun-if-changed=native/include/testlib.h");
+  println!("cargo:rerun-if-changed=native/testlib.cpp");
+
+  // cc 负责编译cpp文件成动态库
+  cc::Build::new()
+    .cpp(true)
+    .file("native/testlib.cpp")
+    .include("native/include")
+    .flag_if_supported("-std=c++17")
+    .flag_if_supported("/std:c++17")
+    .compile("testlib");
+
+  tauri_build::build()
+}
+
 ```
