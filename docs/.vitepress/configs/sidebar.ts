@@ -33,6 +33,17 @@ export const notesSidebar: DefaultTheme.Sidebar = [
     collapsed: false,
     items: [{ text: "前端配置示例", link: "/notes/template/frontend-config" }],
   },
+  {
+    text: "Spring Boot 相关",
+    collapsed: false,
+    items: [
+      { text: "自定义校验器", link: "/notes/spring-boot/custom-validation" },
+      {
+        text: "Spring Boot 全局异常处理",
+        link: "/notes/spring-boot/MethodArgumentNotValidExceptionHandler",
+      },
+    ],
+  },
 ];
 
 const bugsSidebar: DefaultTheme.Sidebar = [
