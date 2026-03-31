@@ -44,6 +44,11 @@ export const notesSidebar: DefaultTheme.Sidebar = [
       },
     ],
   },
+  {
+    text: "辅助工具的使用",
+    collapsed: false,
+    items: [{ text: "Miniconda 的安装与使用", link: "/notes/tools/miniconda" }],
+  },
 ];
 
 const bugsSidebar: DefaultTheme.Sidebar = [
