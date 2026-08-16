@@ -1,14 +1,14 @@
 import { defineConfig } from "vitepress";
 import { nav, sidebar } from "./configs";
 
-const basePath = process.env.BASE_URL || "/blog/";
+const basePath = process.env.VITEPRESS_BASE || "/blog/";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: "zh-CN",
   title: "学习思考的人机",
   description: "记录思考, 分享知识",
-  head: [["link", { rel: "icon", href: "/blog/favicon.ico" }]],
+  head: [["link", { rel: "icon", href: `${basePath}favicon.ico` }]],
 
   base: basePath,
 
