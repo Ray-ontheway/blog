@@ -50,7 +50,7 @@ jobs:
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: vitepress-dist
+          name: pages-dist
           path: docs/.vitepress/dist
           retention-days: 1
 
@@ -83,7 +83,7 @@ jobs:
       - name: Upload for server
         uses: actions/upload-pages-artifact@v3
         with:
-          name: vitepress-dist
+          name: server-dist
           path: docs/.vitepress/dist
           retention-days: 1
 
@@ -107,7 +107,7 @@ jobs:
       - name: Download build output
         uses: actions/download-artifact@v4
         with:
-          name: vitepress-dist
+          name: pages-dist
           path: dist
 
       - name: Setup Pages
@@ -139,7 +139,7 @@ jobs:
       - name: Download build output
         uses: actions/download-artifact@v4
         with:
-          name: vitepress-dist
+          name: server-dist
           path: docs/.vitepress/dist
 
       - name: Login to Registry
