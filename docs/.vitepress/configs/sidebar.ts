@@ -47,7 +47,10 @@ export const notesSidebar: DefaultTheme.Sidebar = [
   {
     text: "辅助工具的使用",
     collapsed: false,
-    items: [{ text: "Miniconda 的安装与使用", link: "/notes/tools/miniconda" }],
+    items: [
+      { text: "Miniconda 的安装与使用", link: "/notes/tools/miniconda" },
+      { text: "Podman 的基础使用", link: "/notes/tools/podman" },
+    ],
   },
 ];
 
