@@ -46,9 +46,14 @@ jobs:
         env:
           VITEPRESS_BASE: /blog/
 
+      - name: Verify build output
+        run: |
+          ls -la docs/.vitepress/dist/
+          test -f docs/.vitepress/dist/index.html && echo "✅ OK" || echo "❌ Missing"
+
       # 上传构建产物供两个部署任务使用
       - name: Upload pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pages-dist
           path: docs/.vitepress/dist
@@ -79,21 +84,14 @@ jobs:
         env:
           VITEPRESS_BASE: /
 
-          # 关键：确认构建产物存在
       - name: Verify build output
         run: |
-          echo "=== dist 目录内容 ==="
           ls -la docs/.vitepress/dist/
-          echo ""
-          echo "=== index.html 是否存在 ==="
-          test -f docs/.vitepress/dist/index.html && echo "✅ index.html exists" || echo "❌ index.html missing"
-          echo ""
-          echo "=== dist 目录大小 ==="
-          du -sh docs/.vitepress/dist/
+          test -f docs/.vitepress/dist/index.html && echo "✅ OK" || echo "❌ Missing"
 
       # 上传构建产物供两个部署任务使用
       - name: Upload for server
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: server-dist
           path: docs/.vitepress/dist
@@ -121,6 +119,11 @@ jobs:
         with:
           name: pages-dist
           path: dist
+
+      - name: Verify downloaded files
+        run: |
+          ls -la dist/
+          test -f dist/index.html && echo "✅ OK" || echo "❌ Missing"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -153,6 +156,11 @@ jobs:
         with:
           name: server-dist
           path: docs/.vitepress/dist
+
+      - name: Verify downloaded files
+        run: |
+          ls -la docs/.vitepress/dist/
+          test -f docs/.vitepress/dist/index.html && echo "✅ OK" || echo "❌ Missing"
 
       - name: Login to Registry
         uses: docker/login-action@v3
