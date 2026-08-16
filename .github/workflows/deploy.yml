@@ -48,7 +48,7 @@ jobs:
       - name: Upload build output
         uses: actions/upload-pages-artifact@v3
         with:
-          name: vitepress-site
+          name: vitepress-dist
           path: docs/.vitepress/dist
           retention-days: 1
 
