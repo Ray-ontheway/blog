@@ -76,7 +76,7 @@ jobs:
           path: dist
 
       - name: Setup Pages
-        uses: action/configure-pages@v4
+        uses: actions/configure-pages@v4
 
       - name: Upload to Github Pages
         uses: actions/upload-pages-artifact@v3
