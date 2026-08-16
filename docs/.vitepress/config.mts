@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress";
 import { nav, sidebar } from "./configs";
 
-const basePath = process.env.VITEPRESS_BASE || "/blog/";
+const basePath = process.env.VITEPRESS_BASE || "/";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
