@@ -79,6 +79,18 @@ jobs:
         env:
           VITEPRESS_BASE: /
 
+          # 关键：确认构建产物存在
+      - name: Verify build output
+        run: |
+          echo "=== dist 目录内容 ==="
+          ls -la docs/.vitepress/dist/
+          echo ""
+          echo "=== index.html 是否存在 ==="
+          test -f docs/.vitepress/dist/index.html && echo "✅ index.html exists" || echo "❌ index.html missing"
+          echo ""
+          echo "=== dist 目录大小 ==="
+          du -sh docs/.vitepress/dist/
+
       # 上传构建产物供两个部署任务使用
       - name: Upload for server
         uses: actions/upload-pages-artifact@v3
